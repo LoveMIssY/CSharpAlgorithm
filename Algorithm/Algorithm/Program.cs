@@ -44,9 +44,24 @@ namespace Algorithm
             #endregion
 
             #region Queue
-            LinkQueue queue1 = new LinkQueue();
-            queue1.EnQueue(1); queue1.EnQueue(2); queue1.EnQueue(3); queue1.EnQueue(4);
-            queue1.Print();
+            //LinkQueue queue1 = new LinkQueue();
+            //queue1.EnQueue(1); queue1.EnQueue(2); queue1.EnQueue(3); queue1.EnQueue(4);
+            //queue1.Print();
+            #endregion
+
+            #region LinkList
+
+            LinkList l1 = new LinkList();
+            l1.AddAfter("oh"); l1.AddAfter("my"); l1.AddAfter("God");
+            LinkList l2 = new LinkList(100);
+            l2.AddAfter("I"); l2.AddAfter("IOVE"); l2.AddAfter("FEIFEI");
+            LinkList l3 = new LinkList(new object[] { 1, 2, 3, 4, 5 });
+            l3.AddAfter("100"); l3.AddAfter("101"); l3.AddAfter("102");
+            l1.PrintLinkList();
+            l2.PrintLinkList();
+            l3.PrintLinkList();
+            Console.WriteLine($"{l1.Count} {l2.Count} {l3.Count}");
+            
             #endregion
         }
     }

@@ -55,7 +55,7 @@ namespace Algorithm
             current.data = obj;
             //  current.next = tail.next;
             tail.next = current;
-            //tail = current;
+            tail = current;
         }
 
         public void DeQueue()
