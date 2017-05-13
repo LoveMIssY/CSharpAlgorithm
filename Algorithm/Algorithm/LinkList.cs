@@ -37,7 +37,11 @@ namespace Algorithm
         /// </summary>
         public object FirstNode
         {
-            get { return head.next.data; }
+            get { if (head.next != null)
+                    return head.next.data;
+                else
+                    return "空链表";
+            }
         }
 
         /// <summary>
@@ -45,7 +49,11 @@ namespace Algorithm
         /// </summary>
         public object LastNode
         {
-            get { return tail.data; }
+            get { if (tail != null)
+                    return tail.data;
+                else
+                    return "空链表";
+            }
         }
 
         #endregion
@@ -105,6 +113,143 @@ namespace Algorithm
             tail.next = current;
             tail = current;
         }
+
+        /// <summary>
+        /// 一次性在后面插入多个元素
+        /// </summary>
+        /// <param name="array"></param>
+        public void AddAfter(object[] array)
+        {
+            for (int i = 0; i < array.Length; i++)
+            {
+                LinkListNode current = new LinkListNode();
+                current.data = array[i];
+                tail.next = current;
+                tail = current;
+            }
+        }
+
+        /// <summary>
+        /// 在指定的位置插入元素
+        /// </summary>
+        /// <param name="index"></param>
+        /// <param name="data"></param>
+        public void InsertAt(int index,object data)
+        {
+            LinkListNode p = head.next;
+            if (index >= Count)
+            {
+                LinkListNode current = new LinkListNode();
+                current.data = data;
+                tail.next = current;
+                tail = current;
+            }
+            else
+            {
+                int searchIndex = 1;
+                while (searchIndex!=index)
+                {
+                    p = p.next;
+                    searchIndex++;
+                }
+                LinkListNode current = new LinkListNode();
+                current.data = data;              
+                current.next = p.next;
+                p.next = current;
+
+            }
+        }
+
+        /// <summary>
+        /// 在指定位置插入多个元素
+        /// </summary>
+        /// <param name="index"></param>
+        /// <param name="data"></param>
+        public void InsertAt(int index, object[] data)
+        {
+            LinkListNode p = head.next;
+            if (index >= Count)
+            {
+                for (int i = 0; i < data.Length; i++)
+                {
+                    LinkListNode current = new LinkListNode();
+                    current.data = data[i];
+                    tail.next = current;
+                    tail = current;
+                }             
+            }
+            else
+            {
+                int searchIndex = 1;
+                while (searchIndex != index)
+                {
+                    p = p.next;
+                    searchIndex++;
+                }
+                for (int i = 0; i < data.Length; i++)
+                {
+                    LinkListNode current = new LinkListNode();
+                    current.data = data[i];
+                    current.next = p.next;
+                    p.next = current;
+                    p = p.next;
+                }
+            }
+        }
+
+         /// <summary>
+        /// 删除某一个位置的元素
+        /// </summary>
+        /// <param name="index"></param>
+        public void DeleteAt(int index)
+        {
+            LinkListNode p = head.next;
+            if (index > Count)
+            {
+                throw new Exception("要删除的元素在链表之外！");
+            }
+            else
+            {
+                int searchIndex = 1;
+                while (searchIndex != index)
+                {
+                    p = p.next;
+                    searchIndex++;
+                }
+                LinkListNode q = p.next;
+                if(q!=null)
+                {
+                    p.next = q.next;
+                    q = null;
+                }
+            }
+        }
+
+        /// <summary>
+        /// 获取某一位置的元素
+        /// </summary>
+        /// <param name="index"></param>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public bool GetElementAt(int index,ref object data)
+        {
+            int searchIndex = 1;
+            if (index < 0 || index > Count)
+                return false;
+            LinkListNode p = head.next;
+            while (searchIndex < index && p != null)
+            {
+                p = p.next;
+                searchIndex++;
+            }
+            if (p == null)
+                return false;
+            else
+            {
+                data = p.data;
+                return true;
+            }
+        }
         #endregion
 
         #region 与属性相关的方法
@@ -129,7 +274,7 @@ namespace Algorithm
         #endregion
 
         #region 打印链表
-        public void PrintLinkList()
+        public void Print()
         {
             string info = "";
             LinkListNode p = head.next;

@@ -77,13 +77,29 @@ namespace Algorithm
         /// </summary>
         public void Print()
         {
-            LinkStackNode current = new LinkStackNode();
-            current = head.next;
-            while (current != null)
-            {              
-                Console.WriteLine(current.data);
-                current = current.next;
+
+            string info = "";
+            LinkStackNode p = head.next;
+            if (p == null)
+            {
+                info = "该栈是一个空栈";
             }
+            else
+            {
+                while (p != null)
+                {
+                    info += p.data + " ";
+                    p = p.next;
+                }
+            }
+            Console.WriteLine(info);
+            //LinkStackNode current = new LinkStackNode();
+            //current = head.next;
+            //while (current != null)
+            //{              
+            //    Console.WriteLine(current.data);
+            //    current = current.next;
+            //}
         }
 
         /// <summary>
