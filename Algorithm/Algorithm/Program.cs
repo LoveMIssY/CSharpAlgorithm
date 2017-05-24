@@ -84,6 +84,34 @@ namespace Algorithm
             //LinkList l4 = new LinkList();
             //l4.Print(); Console.WriteLine($"{l4.Count}--{l4.FirstNode}--{l4.LastNode}");
             #endregion
+
+            #region GeneralizedList
+            //GeneralizedList g1 = new GeneralizedList();
+            //GeneralizedListNode node1= new GeneralizedListNode();
+            //node1.tag = 0;node1.atom = 1;
+            //GeneralizedListNode node2 = new GeneralizedListNode();
+            //node2.tag = 0; node2.atom = 2;
+            //GeneralizedListNode node3 = new GeneralizedListNode();
+            //node3.tag = 0; node3.atom = 3;
+            //g1.Add(node1); g1.Add(node2); g1.Add(node3);
+            //Console.WriteLine($"{g1.Print()}----广义表长度为{g1.Length}---广义表的深度为{g1.Depth}");
+            //GeneralizedList g2 = new GeneralizedList();
+            //g2.Add("a"); g2.Add("d"); g2.Add("c");
+            //Console.WriteLine($"{g2.Print()}----广义表长度为{g2.Length}---广义表的深度为{g2.Depth}");
+            //GeneralizedList g3 = new GeneralizedList();
+            //GeneralizedListNode n1 = new GeneralizedListNode() { tag = 1,
+            //   sublist = new GeneralizedListNode() { tag = 1, sublist = new GeneralizedListNode() { tag = 0, atom = 100 } }
+            //};
+          
+            //g3.Add(1); g3.Add(2);
+            //g3.Add(n1);
+            //g3.Add("asd"); g3.Add("qwe");
+            //Console.WriteLine($"{g3.Print()}----广义表长度为{g3.Length}---广义表的深度为{g3.Depth}");
+
+            //GeneralizedList g4 = new GeneralizedList();
+            //g4.CreateGL("a,(b,c,d),(#)");
+            //Console.WriteLine($"{g4.Print()}----广义表长度为{g4.Length}---广义表的深度为{g4.Depth}");
+            #endregion
         }
     }
 }

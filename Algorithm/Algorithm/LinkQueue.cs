@@ -6,11 +6,18 @@ using System.Threading.Tasks;
 
 namespace Algorithm
 {
+    /// <summary>
+    /// 链式存储的队列节点类型
+    /// </summary>
     public class LinkQueueNode
     {
         public object data;
         public LinkQueueNode next;
     }
+
+    /// <summary>
+    /// 链式存储的队列
+    /// </summary>
     public class LinkQueue
     {
         LinkQueueNode head = new LinkQueueNode(); //对头
